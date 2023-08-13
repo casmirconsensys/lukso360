@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@gnosis.pm/safe-core-sdk": "^3.2.0",
+    "@libp2p/peer-id": "^3.0.1",
+    "@multiformats/multiaddr": "^12.1.6",
     "@paypal/react-paypal-js": "^7.4.2",
     "@reduxjs/toolkit": "^1.6.2",
     "@safe-global/auth-kit": "^1.2.0",

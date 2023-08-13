@@ -2,11 +2,13 @@ import styles from './User.module.css'
 import { useSelector } from 'react-redux'
 import Button from '../../basic/button/Button'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
-
+import React from 'react'
 
 
 const User = ({ getOnlyImage }) => {
-    const name = useSelector(state => state.userSlice.name || 'Default Name');
+    const name = useSelector(state => state.user.name || 'Default Name');
+    const uPic = useSelector(state => state.user.upic); // Use the correct property name
+    const uName = useSelector(state => state.user.uname); // Use the correct property name
 
     
 
