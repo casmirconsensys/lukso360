@@ -15,11 +15,12 @@ const defaults = {
 
 
 export const userSlice = createSlice({
+   
     name: 'user',
     initialState: defaults,
     reducers: {
         setName: (state, action) => {
-            state.name = action.payload 
+            state.name = action.payload || defaults.name
            },
         setUName: (state, action) => {
             state.uname = action.payload 

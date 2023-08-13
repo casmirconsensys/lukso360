@@ -3,11 +3,14 @@ import { useSelector } from 'react-redux'
 import Button from '../../basic/button/Button'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 
-const User = ({ getOnlyImage }) => {
 
-    const name = useSelector(state => state.user.name)
-    const uName = useSelector(state => state.user.uname)
-    const uPic = useSelector(state => state.user.upic)
+
+const User = ({ getOnlyImage }) => {
+    const name = useSelector(state => state.userSlice.name || 'Default Name');
+
+    
+
+
 
     const showConvo = () =>{
         // document.getElementById('convo').style.display = 'block';
