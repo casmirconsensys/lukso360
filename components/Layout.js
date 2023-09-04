@@ -22,7 +22,7 @@ const Layout = ({ title, keywords, backgroundImage, children }) => {
                 <meta name='keywords' content={keywords}/>
                 <meta name='fortmatic-site-verification' content='nFsp0JJPU0nju8re' />
                 <link rel='icon' href='favicon.ico' />
-                <link rel='shortcut icon' href='https://360nft.io/favicon.png' />
+                <link rel='shortcut icon' href='https://ipfs.io/ipfs/QmbEcWF76ZuBFGimX58fwD3qZxZ1qMWJoSxQ6e8Hw4hdeL' />
                 <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap' rel='stylesheet' />          
             </Head>
             {children}

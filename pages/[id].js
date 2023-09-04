@@ -81,7 +81,7 @@ const UserProfile = () => {
         try{
         setAvatarUploading(true)
         const file = e.target.files[0]
-        const avatarFile = new Moralis.File(file.name, file)
+        // const avatarFile = new Moralis.File(file.name, file)
         await avatarFile.save()
         
         // const UserClass = await Moralis.Object.extend('User')
@@ -103,7 +103,8 @@ const UserProfile = () => {
 
     const handleCoverSelect = async (e) => {
         // const chainId = await Moralis.getChainId()
-        console.log('chain', chainId); // 56
+        const chainId = 999
+        console.log('chain', chainId); //999 ZORA
     }
 
     return (
