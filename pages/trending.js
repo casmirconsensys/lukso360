@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import FeedCard from '../components/cards/feed/FeedCard'
 import Player from '../components/Player'
+
 import ProfileProgress from '../components/cards/profile-progress/ProfileProgress'
 import Logo from '../components/basic/Logo'
 import Toolbox from '../components/sections/toolbox/Toolbox'
