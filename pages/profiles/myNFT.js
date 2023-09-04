@@ -1,6 +1,6 @@
 import { useNFT, useNFTMetadata } from '@zoralabs/nft-hooks'
 
-function MyNFT() {
+const MyNFT = () => {
   const { data } = useNFT('0xabEFBc9fD2F806065b4f3C237d4b59D9A97Bcac7', '20')
 
   return (
@@ -13,8 +13,10 @@ function MyNFT() {
           width="600px"
           height="600px"
           style="max-width:100%;"
-          frameborder="0"
+          frameBorder="0"
       ></iframe>
     </div>
   )
 }
+
+export default MyNFT

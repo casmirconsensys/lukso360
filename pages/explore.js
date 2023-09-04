@@ -144,7 +144,7 @@ const Explore = () => {
 
                             <li className={styles.tokenItem}>
                                 <img src='https://ipfs.io/ipfs/QmdusuNQxHyBn2vnhRpvDwrfbxzz9Z1DdkNyBgYUXXDVBT' className='token-image'/>
-                                <p className={styles.tokenItemText}>Lil'Reese</p>
+                                <p className={styles.tokenItemText}>Lil&apos;Reese</p>
                                 <a href='#' className='stretched-link'></a>
                             </li>
                             

@@ -58,7 +58,7 @@ const Drop = () => {
           });
         });
         
-        app.listen(4242, () => console.log("Node server listening on port 4242!"));        .then(async (data) => {
+        app.listen(4242, () => console.log("Node server listening on port 4242!")).then(async (data) => {
             const ItemClass = await Moralis.Object.extend('Item')
             const query = new Moralis.Query(ItemClass).equalTo('tokenId', id)
             const results = await query.find()
