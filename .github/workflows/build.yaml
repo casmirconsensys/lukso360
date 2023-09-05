@@ -1,0 +1,66 @@
+name: Build
+
+on:
+  push:
+    branches:
+    tags:
+  pull_request:
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: yarn/action-setup@v2
+        with:
+          version: 1.22.19
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 16
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: |
+          npm run build
+
+  graphql:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: yarn/action-setup@v2
+        with:
+          version: 1.22.19
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 16
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Graphql Codegen Static
+        run: |
+          npm run graphql:static
+
+      - name: Graphql Codegen
+        run: |
+          npm run graphql
