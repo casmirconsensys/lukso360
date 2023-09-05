@@ -134,25 +134,25 @@ const Trending = () => {
                         <ul className={styles.tokenSection}>
 
                             <li className={styles.tokenItem}>
-                                <img src='https://trapchain.herokuapp.com/static/GHerbo_avatar.png' className='token-image'/>
-                                <p className={styles.tokenItemText}>GHerbo</p>
+                                <img src='https://ipfs.io/ipfs/QmYPP9YPaxp18j5HKVN2mwEqjmpaZvhCX1bgqvX4LGsfYp' className='token-image'/>
+                                <p className={styles.tokenItemText}>Lil Baby</p>
                                 <a href='#' className='stretched-link'></a>
                             </li>
                             
                             <li className={styles.tokenItem}>
-                                <img src='https://trapchain.herokuapp.com/static/6lack_avatar.png' className='token-image'/>
-                                <p className={styles.tokenItemText}>6lack</p>
+                                <img src='https://ipfs.io/ipfs/QmaMqNLgthC82tEvtJi9b5crbiHCmAw2jVGLQhzLWg24jz' className='token-image'/>
+                                <p className={styles.tokenItemText}>6ix9ine</p>
                                 <a href='#' className='stretched-link'></a>
                             </li>
 
                             <li className={styles.tokenItem}>
-                                <img src='https://trapchain.herokuapp.com/static/dreezy_avatar.png' className='token-image'/>
-                                <p className={styles.tokenItemText}>Dreezy</p>
+                                <img src='https://ipfs.io/ipfs/QmVfF5KrArmTttc4jdg8Xzaa6xvHX2Mgcks3DvfWGestuR' className='token-image'/>
+                                <p className={styles.tokenItemText}>6ix9ine</p>
                                 <a href='#' className='stretched-link'></a>
                             </li>
 
                             <li className={styles.tokenItem}>
-                                <img src='https://trapchain.herokuapp.com/static/julio_foolio_avatar.png' className='token-image'/>
+                                <img src='https://ipfs.io/ipfs/QmS3rtQjbYR39myCr8f1JS8f5RC7JGP8o3svqtWpibSsm8' className='token-image'/>
                                 <p className={styles.tokenItemText}>Juliofoolio</p>
                                 <a href='#' className='stretched-link'></a>
                             </li>

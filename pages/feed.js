@@ -147,13 +147,13 @@ const Feed = () => {
 
                             <li className={styles.tokenItem}>
                                 <img src='https://ipfs.io/ipfs/QmdUzLgetCsDT8CzDZVqrQj82shx8kSf9npV8pVxZz1gUx' className='token-image'/>
-                                <p className={styles.tokenItemText}>Lil'Durkß</p>
+                                <p className={styles.tokenItemText}>Lil&apos;Durkß</p>
                                 <a href='#' className='stretched-link'></a>
                             </li>
 
                             <li className={styles.tokenItem}>
                                 <img src='https://ipfs.io/ipfs/QmTRRFy828bSxEkVk59UXyLH9MEEmKLZWBQztbRV7R54wa' className='token-image'/>
-                                <p className={styles.tokenItemText}>Lil'Pump</p>
+                                <p className={styles.tokenItemText}>Lil&apos;Pump</p>
                                 <a href='#' className='stretched-link'></a>
                             </li>
 

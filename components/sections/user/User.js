@@ -2,11 +2,13 @@ import styles from './User.module.css'
 import { useSelector } from 'react-redux'
 import Button from '../../basic/button/Button'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
-
+import React from 'react'
 
 
 const User = ({ getOnlyImage }) => {
-    const name = useSelector(state => state.userSlice.name || 'Default Name');
+    const name = useSelector(state => state.user.name || 'Account');
+    const uPic = useSelector(state => state.user.upic); // Use the correct property name
+    const uName = useSelector(state => state.user.uname); // Use the correct property name
 
     
 
@@ -26,7 +28,7 @@ const User = ({ getOnlyImage }) => {
                 <img className={styles.avatar} src={uPic}/>
                 <div className={styles.avatarTextContainer}>
                     <p className={styles.name}>{name}</p>
-                    <p className={styles.username}>@{uName}</p>
+                    <p className={styles.username}>0x{uName}</p>
                 </div>
                 <DropdownButton id='dropDownUser' title='' className={styles.dropdownToggle}>
                         <Button isDropdownButton={1} text='Messages' type='secondary'/>

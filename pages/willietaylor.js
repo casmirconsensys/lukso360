@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { useMoralis, useMoralisCloudFunction, useChain } from 'react-moralis'
+// import { useMoralis, useMoralisCloudFunction, useChain } from 'react-moralis'
 import { useSelector } from 'react-redux'
 import Layout from '../components/Layout'
 import FeedCard from '../components/cards/feed/FeedCard'
@@ -20,9 +20,9 @@ import Foot from '../components/sections/foot/Foot'
 
 const Explore = () => {
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-    const { data: feedData, error, isLoading, fetch} = useMoralisCloudFunction('getAllItems')
+    // const { data: feedData, error, isLoading, fetch} = useMoralisCloudFunction('getAllItems')
     const { showNotification } = useNotification();
-    const { Moralis, enableWeb3, web3 } = useMoralis()
+    // const { Moralis, enableWeb3, web3 } = useMoralis()
 
     const { chainId: _chainId, chain } = useChain();
     console.log('chain:', chain);
@@ -49,34 +49,34 @@ const Explore = () => {
     }, [])
 
     const addNetwork = async () => {
-        await Moralis.getChainId().then( async (data) => {
-            if (data === 1175159915491121){
-                showNotification({type: 'success', message: 'You are already on the Trapchain Network!'})
-                return
-            }
-            else {
-                await Moralis.switchNetwork(1175159915491121).then(() => {
-                    showNotification({type: 'success', message: 'You are now on the Trapchain Network!'})
-                })
-                .catch(async() => {
-                    const chainId = 0x42CCD3D512F31;
-                    const chainName = 'Trapchain | SKALE Network';
-                    const currencyName = 'SKALE ETH';
-                    const currencySymbol = 'skETH';
-                    const rpcUrl = 'https://mainnet-api.skalenodes.com/v1/dazzling-gomeisa';
-                    const blockExplorerUrl = 'https://dazzling-gomeisa.explorer.mainnet.skalenodes.com';
+        // await Moralis.getChainId().then( async (data) => {
+        //     if (data === 1175159915491121){
+        //         showNotification({type: 'success', message: 'You are already on the Trapchain Network!'})
+        //         return
+        //     }
+        //     else {
+        //         await Moralis.switchNetwork(1175159915491121).then(() => {
+        //             showNotification({type: 'success', message: 'You are now on the Trapchain Network!'})
+        //         })
+        //         .catch(async() => {
+        //             const chainId = 0x42CCD3D512F31;
+        //             const chainName = 'Trapchain | SKALE Network';
+        //             const currencyName = 'SKALE ETH';
+        //             const currencySymbol = 'skETH';
+        //             const rpcUrl = 'https://mainnet-api.skalenodes.com/v1/dazzling-gomeisa';
+        //             const blockExplorerUrl = 'https://dazzling-gomeisa.explorer.mainnet.skalenodes.com';
 
-                    await Moralis.addNetwork(
-                        chainId, 
-                        chainName, 
-                        currencyName, 
-                        currencySymbol, 
-                        rpcUrl,
-                        blockExplorerUrl
-                    );
-                })                      
-            }
-        })
+        //             await Moralis.addNetwork(
+        //                 chainId, 
+        //                 chainName, 
+        //                 currencyName, 
+        //                 currencySymbol, 
+        //                 rpcUrl,
+        //                 blockExplorerUrl
+        //             );
+        //         })                      
+        //     }
+        // })
         
     }
          

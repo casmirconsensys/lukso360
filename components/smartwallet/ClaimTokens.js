@@ -1,19 +1,20 @@
 import React from "react";
-import { ThirdwebSDKProvider, useAddress, useBalance, Web3Button } from "@thirdweb-dev/react";
-import { activeChain, tokenAddress } from "../../const/constants";
+// import { ThirdwebSDKProvider, useAddress, useBalance, Web3Button } from "@thirdweb-dev/react";
+// import { activeChain, tokenAddress } from "../../const/constants";
 import { Signer } from "ethers";
 import style from "../../styles/Token.module.css";
 
 // ThirdwebSDKProvider is a wrapper component that provides the smart wallet signer and active chain to the Thirdweb SDK.
 const SmartWalletConnected = ({ signer }) => {
   return (
-    <ThirdwebSDKProvider 
-      signer={signer} 
-      activeChain={activeChain}
-      clientId={process.env.CLIENT_ID}
-    >
-      <ClaimTokens />
-    </ThirdwebSDKProvider>
+    <div></div>
+    // <ThirdwebSDKProvider 
+    //   signer={signer} 
+    //   activeChain={activeChain}
+    //   clientId={process.env.CLIENT_ID}
+    // >
+    //   <ClaimTokens />
+    // </ThirdwebSDKProvider>
   );
 };
 
@@ -32,12 +33,12 @@ const ClaimTokens = () => {
         ) : (
           <div className={style.pricingContainer}>
             <h2>Balance: {tokenBalance?.displayValue}</h2>
-            <Web3Button
+            {/* <Web3Button
               contractAddress={tokenAddress}
               action={async (contract) => await contract.erc20.claim(10)}
             >
               Claim 10 Tokens
-            </Web3Button>
+            </Web3Button> */}
           </div>
         )
       ) : null}

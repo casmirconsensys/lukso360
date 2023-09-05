@@ -6,8 +6,8 @@ import Button from '../components/basic/button/Button'
 import Foot from '../components/sections/foot/Foot'
 import styles from '../styles/Home.module.css'
 import fonts from '../styles/Fonts.module.css'
-import { Waitlist } from 'waitlistapi'
-import userflow from 'userflow.js'
+// import { Waitlist } from 'waitlistapi'
+// import userflow from 'userflow.js'
 import { useEffect } from 'react';
 // import { useContract, useNFTs, ThirdwebNftMedia } from "@thirdweb-dev/react";
 
@@ -84,7 +84,8 @@ export default function Home() {
 
                   {/* Show Waitlist if ! authenticated */}
                   <div style={{paddingBottom: '50px'}}>
-                    {typeof window !== 'undefined' && <Waitlist className='container--waitlistapi' api_key='E7YQLY' waitlist_link='https://trapchain.herokuapp.com/' />}
+                    {/* {typeof window !== 'undefined' && <Waitlist className='container--waitlistapi' api_key='E7YQLY' waitlist_link='https://trapchain.herokuapp.com/' />} */}
+                    <div className='container--waitlistapi'></div>
                   </div>
               </div>    
               <Foot position='static'/> 

@@ -191,7 +191,7 @@ const FeedCard = ({ feed }) => {
                    <Button
                         type='secondary'
                         isOutline={1}
-                        text='Pay With Crypto'
+                        text='Subscribe'
                         onClick={() => {
                             // const stripePack = new StripePack({
                             // stripePublicKey: 'pk_0KEVOnYBNRYKahDkGcrniMnINvkqo',

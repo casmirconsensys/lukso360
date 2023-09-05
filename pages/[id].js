@@ -42,7 +42,35 @@ const UserProfile = () => {
 
     // const { Moralis } = useMoralis()
     // const { data, error, isLoading, fetch } = useMoralisCloudFunction('getUserItems')
+    const data = feedData
+    const suggestionsData = suggestions
+    const [showAddToken, setShowAddToken] = useState(false)
+    const [showUpload, setShowUpload] = useState(false)
+    const [showMoreOptions, setShowMoreOptions] = useState(false)
+    const [showEditProfile, setShowEditProfile] = useState(false)
+    const [showEditCover, setShowEditCover] = useState(false)
+    const [showEditAvatar, setShowEditAvatar] = useState(false)
+    const [showEditName, setShowEditName] = useState(false)
+    const [showEditUsername, setShowEditUsername] = useState(false)
+    const [showEditBio, setShowEditBio] = useState(false)
+    const [showEditEmail, setShowEditEmail] = useState(false)
+    const [showEditPassword, setShowEditPassword] = useState(false)
+    const [showEditSocials, setShowEditSocials] = useState(false)
+    const [showEditWebsite, setShowEditWebsite] = useState(false)
     // const { data: itemsForSale, fetch: fetchItemsForSale } = useMoralisCloudFunction('getItemsForSale')
+    const itemsForSale = []
+    const [chainId, setChainId] = useState(null)
+    const [UserClass, setUserClass] = useState(null)
+    const [query, setQuery] = useState(null)
+    const [results, setResults] = useState(null)
+    const [user, setUser] = useState(null)
+    const [objId, setObjId] = useState(null)
+    const [userObj, setUserObj] = useState(null)
+    const [avatarFile, setAvatarFile] = useState(null)
+    const [coverFile, setCoverFile] = useState(null)
+    const [userAvatar, setUserAvatar] = useState(null)
+    const [userCover, setUserCover] = useState(null)
+    const [userEmail, setUserEmail] = useState(null)
     // console.table(itemsForSale);
 
     const [openUploadModal, setUploadModal] = useState(false)
@@ -53,10 +81,10 @@ const UserProfile = () => {
         try{
         setAvatarUploading(true)
         const file = e.target.files[0]
-        const avatarFile = new Moralis.File(file.name, file)
+        // const avatarFile = new Moralis.File(file.name, file)
         await avatarFile.save()
         
-        const UserClass = await Moralis.Object.extend('User')
+        // const UserClass = await Moralis.Object.extend('User')
         // const query = new Moralis.Query(UserClass).equalTo('username', uMoralisUsername)
         const results = await query.find()
         const user = JSON.parse(JSON.stringify(results))
@@ -75,7 +103,8 @@ const UserProfile = () => {
 
     const handleCoverSelect = async (e) => {
         // const chainId = await Moralis.getChainId()
-        console.log('chain', chainId); // 56
+        const chainId = 999
+        console.log('chain', chainId); //999 ZORA
     }
 
     return (
@@ -178,22 +207,22 @@ const UserProfile = () => {
                 <div className={styles.bottomRight}>
                     <div className='subscription-grid'>
                         <a className='grid-item locked'>
-                            <img src='https://trapchain.herokuapp.com/static/profiles/assets/travis-scott-single.png'/>
+                            <img src='https://ipfs.io/ipfs/QmVfF5KrArmTttc4jdg8Xzaa6xvHX2Mgcks3DvfWGestuR'/>
                         </a>
                         <a className='grid-item locked'>
-                            <img src='https://trapchain.herokuapp.com/static/profiles/assets/travis-scott-album-1.png'/>
+                            <img src='https://ipfs.io/ipfs/QmS3rtQjbYR39myCr8f1JS8f5RC7JGP8o3svqtWpibSsm8'/>
                         </a>
                         <a className='grid-item'>
-                            <img src='https://trapchain.herokuapp.com/static/profiles/assets/travis-scott-album-2.png'/>
+                            <img src='https://ipfs.io/ipfs/QmYPP9YPaxp18j5HKVN2mwEqjmpaZvhCX1bgqvX4LGsfYp'/>
                         </a>
                         <a className='grid-item'>
-                            <img src='https://trapchain.herokuapp.com/static/profiles/assets/travis-scott-collab.png'/>
+                            <img src='https://ipfs.io/ipfs/QmdusuNQxHyBn2vnhRpvDwrfbxzz9Z1DdkNyBgYUXXDVBT'/>
                         </a>
                         <a className='grid-item'>
-                            <img src='https://trapchain.herokuapp.com/static/profiles/assets/g-herbo-profile.png'/>
+                            <img src='https://ipfs.io/ipfs/QmedGWqsuS1bAyye5V7m41TJH6SYbbWH3brpHGzC1J6C6z'/>
                         </a>
                         <a className='grid-item'>
-                            <img src='https://trapchain.herokuapp.com/static/profiles/assets/smokepurp-profile.png'/>
+                            <img src='https://ipfs.io/ipfs/QmPSRpzv5151rkpUqi1iiqTE9frWKA9SrWNWNBZNik21DG'/>
                         </a>
                     </div>
                     <span className={styles.subHeader}>You might like</span>
