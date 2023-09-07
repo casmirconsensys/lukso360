@@ -70,10 +70,10 @@ const Profile = () => {
         }
     }
 
-    const handleCoverSelect = async (e) => {
-        const chainId = await Moralis.getChainId()
-        console.log('chain', chainId); // 56
-    }
+    // const handleCoverSelect = async (e) => {
+    //     const chainId = await Moralis.getChainId()
+    //     console.log('chain', chainId); // 56
+    // }
 
     return (
         <Layout backgroundImage='playlist'>
@@ -159,7 +159,7 @@ const Profile = () => {
                                 </p>
                             </div>
                         </div>
-                        { data && 
+                        {/* { data && 
                                 (
                                     data.length >= 1 ? data.slice(0).reverse().map((res, ind) => <FeedCard key={ind} feed={res} />)
                                     :
@@ -167,7 +167,7 @@ const Profile = () => {
                                         <h1 className={`color-primary ${fonts.mont}`} style={{fontWeight: 300}}>No NFT&apos;s Minted</h1>
                                     </div>
                                 )
-                        }
+                        } */}
                     </div>
                     <Player progress={90}/>
                 </div>
@@ -208,7 +208,7 @@ const Profile = () => {
             }
             <form style={{display: 'none'}}>
                 <input type='file' id='fileDialogPic' onChange={handleFileSelect} accept='image/jpeg, image/png, image/video/mp4, image/gif, audio/*'/>
-                <input type='file' id='fileDialogCover' onChange={handleCoverSelect} accept='image/jpeg, image/png, image/video/mp4, image/gif, audio/*'/>
+                {/* <input type='file' id='fileDialogCover' onChange={handleCoverSelect} accept='image/jpeg, image/png, image/video/mp4, image/gif, audio/*'/> */}
             </form>
         </Layout>
     )
