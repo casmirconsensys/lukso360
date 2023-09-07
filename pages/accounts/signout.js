@@ -42,7 +42,7 @@ const Signout = () => {
                                     <div style={{display: 'flex', flexDirection: 'row'}}>
                                         <Button isLink={1} href='/playlists' marginRight='24px' bg='dark' text='Cancel'/>
                                         <Button onClick={Logout} bg='greenToPurple'>
-                                            {isLoggingOut && <span className='spinner-border spinner-border-sm' style={{margin: '0 24px'}} role='status' aria-hidden='true'></span>}
+                                            {/* {isLoggingOut && <span className='spinner-border spinner-border-sm' style={{margin: '0 24px'}} role='status' aria-hidden='true'></span>} */}
                                             Sign Out
                                         </Button>
                                     </div>
