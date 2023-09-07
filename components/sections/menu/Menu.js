@@ -52,7 +52,7 @@ const Menu = () => {
                           <li className={`${styles.menuItem} ${(currentSelection === 2) && styles.activeMenu}`}>
                               <Button onClick={() => {
                                         setCurrentSelection(2)
-                                        router.push('/explore')
+                                        router.push('/feed') //'explore' page is diabled and re-routes to /feed/page.js
                                     }} type='tertiary' iconOpacity={1} text={<span style={{fontWeight: 600}}>Explore</span>} iconClass='icon-explore'/>              
                           </li>
                           <li className={`${styles.menuItem} ${(currentSelection === 3) && styles.activeMenu}`}>
