@@ -46,7 +46,7 @@ const Menu = () => {
                           <li className={`${styles.menuItem} ${(currentSelection === 1) && styles.activeMenu}`}>
                               <Button onClick={() => {
                                         setCurrentSelection(1)
-                                        router.push('/trending')
+                                        router.push('/feed') //'trending' page redirects to /feed/page
                                     }} type='tertiary' iconOpacity={1} text={<span style={{fontWeight: 600}}>Trending</span>} iconClass='icon-lightning-bolt'/>
                           </li>
                           <li className={`${styles.menuItem} ${(currentSelection === 2) && styles.activeMenu}`}>
