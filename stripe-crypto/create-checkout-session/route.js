@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/utils/supabaseAdmin";
+const { NextResponse } = require("next/server");
+const { supabaseAdmin } = require("@/utils/supabaseAdmin");
 
-export async function POST(request: Request) {
+async function POST(request) {
   try {
     const body = await request.json();
 
@@ -29,3 +29,7 @@ export async function POST(request: Request) {
     console.log(error);
   }
 }
+
+module.exports = {
+  POST,
+};

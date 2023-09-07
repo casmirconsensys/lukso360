@@ -1,7 +1,7 @@
-import { stripe } from "@/utils/stripe";
-import { NextResponse } from "next/server";
+const { stripe } = require("@/utils/stripe");
+const { NextResponse } = require("next/server");
 
-export async function POST(request: Request) {
+async function POST(request) {
   try {
     const { name, price, description, art_submission_id, images } =
       await request.json();
@@ -31,3 +31,7 @@ export async function POST(request: Request) {
     return NextResponse.error();
   }
 }
+
+module.exports = {
+  POST,
+};

@@ -1,15 +1,14 @@
-import { NextResponse } from "next/server";
-import { headers } from "next/headers";
+const { NextResponse } = require("next/server");
+const { headers } = require("next/headers");
 
-import Stripe from "stripe";
-import { stripe } from "@/utils/stripe";
+const Stripe = require("stripe");
+const { stripe } = require("@/utils/stripe");
 
-import {
+const {
   insertProductRecord,
   insertPriceRecord,
   handleProductSold,
-} from "@/utils/supabaseAdmin";
-import { ProductMetadata } from "@/types";
+} = require("@/utils/supabaseAdmin");
 
 const relevantEvents = new Set([
   "product.created",
@@ -24,19 +23,19 @@ const relevantEvents = new Set([
   "charge.failed",
 ]);
 
-export async function POST(request: Request) {
+async function POST(request) {
   const body = await request.text();
-  const sig = headers().get("Stripe-Signature") as string;
+  const sig = headers().get("Stripe-Signature");
 
   const webhookSecret =
-    process.env.STRIPE_WEBHOOK_SECRET_LIVE ?? process.env.STRIPE_WEBHOOK_SECRET;
-  let event: Stripe.Event;
+    process.env.STRIPE_WEBHOOK_SECRET_LIVE || process.env.STRIPE_WEBHOOK_SECRET;
+  let event;
 
   try {
     if (!sig || !webhookSecret) return;
 
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
-  } catch (err: any) {
+  } catch (err) {
     console.log(`❌ Error message: ${err.message}`);
     return new NextResponse(`Webhook Error: ${err.message}`, { status: 400 });
   }
@@ -45,17 +44,14 @@ export async function POST(request: Request) {
     try {
       switch (event.type) {
         case "product.created":
-          await insertProductRecord(event.data.object as Stripe.Product);
+          await insertProductRecord(event.data.object);
           break;
         case "price.created":
-          await insertPriceRecord(event.data.object as Stripe.Price);
+          await insertPriceRecord(event.data.object);
           break;
         case "checkout.session.async_payment_succeeded":
         case "checkout.session.completed":
-          await handleProductSold(
-            // @ts-ignore
-            event.data.object.metadata as ProductMetadata
-          );
+          await handleProductSold(event.data.object.metadata);
           break;
       }
     } catch (error) {
@@ -68,3 +64,7 @@ export async function POST(request: Request) {
   }
   return NextResponse.json({ received: true }, { status: 200 });
 }
+
+module.exports = {
+  POST,
+};
