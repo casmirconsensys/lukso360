@@ -24,8 +24,8 @@ const Explore = () => {
     const { showNotification } = useNotification();
     // const { Moralis, enableWeb3, web3 } = useMoralis()
 
-    const { chainId: _chainId, chain } = useChain();
-    console.log('chain:', chain);
+    // const { chainId: _chainId, chain } = useChain();
+    // console.log('chain:', chain);
 
     // useEffect(() => {
     //     var audio = new Audio('../common/Willie.mp3')
@@ -33,20 +33,20 @@ const Explore = () => {
     //     audio.play()
     // }, [])
 
-    useEffect(() => {
-        try{
-        showNotification({type: 'success', message: `You just switched to ${chain.name}`})
-        } catch{}
-    }, [_chainId])
+    // useEffect(() => {
+    //     try{
+    //     showNotification({type: 'success', message: `You just switched to ${chain.name}`})
+    //     } catch{}
+    // }, [_chainId])
 
-    useEffect(() => {
-        enableWeb3()
-        window.intercomSettings = {
-            app_id: "z0z0sjqk"
-        };
-        // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/z0z0sjqk'
-        (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/z0z0sjqk';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
-    }, [])
+    // useEffect(() => {
+    //     enableWeb3()
+    //     window.intercomSettings = {
+    //         app_id: "z0z0sjqk"
+    //     };
+    //     // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/z0z0sjqk'
+    //     (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/z0z0sjqk';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+    // }, [])
 
     const addNetwork = async () => {
         // await Moralis.getChainId().then( async (data) => {
@@ -132,11 +132,11 @@ const Explore = () => {
 
                     <div className={styles.bottomCenter}>
                         <div className={styles.playlistHeader}>
-                            <h1 className='color-primary' style={{fontWeight: 'bold', fontSize: '30px', letterSpacing: '-1px'}}>Willie Taylor - Write My Wrongs</h1>
+                            <h1 className='color-primary' style={{fontWeight: 'bold', fontSize: '30px', letterSpacing: '-1px'}}>Live Stream - Streaming Live</h1>
                         </div>
                         <div className={`hide-scroll ${styles.scrollFeedContainer}`}>
                                         {/* <h1 className={`color-primary ${fonts.mont}`} style={{fontWeight: 300}}>Dropping Today</h1> */}
-                            { isLoading ? <div className='centerDivItems'><Loader/></div> : (feedData && 
+                            {/* { isLoading ? <div className='centerDivItems'><Loader/></div> : (feedData && 
                                 (
                                     feedData.length >= 1 ? feedData.slice(0).reverse().map((res, ind) => <FeedCard key={ind} feed={res} />)
                                     :
@@ -144,7 +144,7 @@ const Explore = () => {
                                         <h1 className={`color-primary ${fonts.mont}`} style={{fontWeight: 300}}>Dropping Today!</h1>
                                     </div>
                                 ))
-                            }
+                            } */}
                         </div>
                     </div>
 
