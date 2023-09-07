@@ -66,6 +66,7 @@ const Explore = () => {
         //             const rpcUrl = 'https://mainnet-api.skalenodes.com/v1/dazzling-gomeisa';
         //             const blockExplorerUrl = 'https://dazzling-gomeisa.explorer.mainnet.skalenodes.com';
 
+
         //             await Moralis.addNetwork(
         //                 chainId, 
         //                 chainName, 

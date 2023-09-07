@@ -21,8 +21,12 @@ const page = () => {
                 <div className='m-auto gap-y-6'>
                     <h1 className='text-6xl text-secondary font-primary text-[58px] font-extrabold'>
                         LOG IN 
-                        <br/> <span className='text-[#00BBFF]'>360</span> NFT
                     </h1>
+                        
+                        <h1 style={{color: '#212429'}} className='text-[#212429]'>Sydney
+                         <span style={{color: '#00B8B9'}} className="text-[#00B8B9]">Verse</span>
+                        </h1>
+                    
                     {/* buttons */}
                     <div className='mt-10 flex justify-start'>
                         <SafeConnect />

@@ -17,8 +17,8 @@ import Button from '../../components/basic/button/Button';
 import styles from '../../styles/Accounts.module.css';
 import Loader from '../../components/basic/loader/Loader';
 import { useMediaQuery } from 'react-responsive';
-import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+// import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
+// import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 const connectedHandler = (data) => console.log('CONNECTED', data);
 const disconnectedHandler = (data) => console.log('DISCONNECTED', data);
@@ -33,7 +33,7 @@ const disconnectedHandler = (data) => console.log('DISCONNECTED', data);
         // )
         // const [userInfo, setUserInfo] = useState<Partial<UserInfo>>()
         // const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(null)
-        const address = useAddress();
+        // const address = useAddress();
         const handleLogin = async () => {
             try {
                 const authKitSignData = await web3AuthModalPack.signIn();

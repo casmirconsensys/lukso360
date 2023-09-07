@@ -3,6 +3,7 @@ import { ethers } from 'ethers';
 import { useRouter } from 'next/router'; // Import useRouter
 import { Safe, SafeFactory } from '@gnosis.pm/safe-core-sdk';
 import Loader from '../components/basic/loader/Loader';
+import axios from 'axios';
 
 const SafeConnect = () => {
   const [connected, setConnected] = useState(false);
@@ -40,6 +41,18 @@ const SafeConnect = () => {
     const safe = await safeFactory.deployMastercopy();
 
     setSafeAddress(safe.address);
+
+    try {
+      await axios.post('/api/userdata', {
+        name: userName,
+        walletAddress: walletAddress,
+        safeAddress: safeAddress,
+      });
+      console.log('User data saved successfully');
+    } catch (error) {
+      console.error('Error saving user data:', error);
+    }
+    
   };
 
   return (
