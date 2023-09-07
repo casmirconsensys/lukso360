@@ -189,6 +189,33 @@ const Explore = () => {
               />
             </div>
           </div>
+          <div className={styles.modalContainer}>
+            {showModal && (
+              <div className={styles.modal}>
+                <div className={styles.modalContent}>
+                  <iframe
+                    id="huddle01-iframe"
+                    src="https://app.huddle01.com/qrh-jwfa-wov"
+                    name="myiFrame"
+                    scrolling="no"
+                    allowFullScreen
+                    allow="camera; microphone; clipboard-read; clipboard-write; display-capture"
+                  ></iframe>
+                  <button onClick={handleModal}>X</button>
+                </div>
+              </div>
+            )}
+          </div>
+          <span className="margin-right-wide"></span>
+          <Button
+            className="openModalBtn"
+            onClick={() => {
+              setOpenModal(true);
+            }}
+            bg="greenToPurple"
+            spread="gradient"
+            text="Login"
+          />
 
           <div className={styles.bottomRight}></div>
         </div>
