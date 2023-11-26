@@ -264,22 +264,22 @@ const UserProfile = () => {
 
           <div className={styles.bottomRight}>
             <div className="subscription-grid">
-              <Link to="/route1" className="grid-item locked">
+              <Link to="/route1" className="grid-item locked" legacyBehavior>
                 <img src="https://ipfs.io/ipfs/QmVfF5KrArmTttc4jdg8Xzaa6xvHX2Mgcks3DvfWGestuR" />
               </Link>
-              <Link to="/route2" className="grid-item locked">
+              <Link to="/route2" className="grid-item locked" legacyBehavior>
                 <img src="https://ipfs.io/ipfs/QmS3rtQjbYR39myCr8f1JS8f5RC7JGP8o3svqtWpibSsm8" />
               </Link>
-              <Link to="/route3" className="grid-item">
+              <Link to="/route3" className="grid-item" legacyBehavior>
                 <img src="https://ipfs.io/ipfs/QmYPP9YPaxp18j5HKVN2mwEqjmpaZvhCX1bgqvX4LGsfYp" />
               </Link>
-              <Link to="/route4" className="grid-item">
+              <Link to="/route4" className="grid-item" legacyBehavior>
                 <img src="https://ipfs.io/ipfs/QmdusuNQxHyBn2vnhRpvDwrfbxzz9Z1DdkNyBgYUXXDVBT" />
               </Link>
-              <Link to="/route5" className="grid-item">
+              <Link to="/route5" className="grid-item" legacyBehavior>
                 <img src="https://ipfs.io/ipfs/QmedGWqsuS1bAyye5V7m41TJH6SYbbWH3brpHGzC1J6C6z" />
               </Link>
-              <Link to="/route6" className="grid-item">
+              <Link to="/route6" className="grid-item" legacyBehavior>
                 <img src="https://ipfs.io/ipfs/QmPSRpzv5151rkpUqi1iiqTE9frWKA9SrWNWNBZNik21DG" />
               </Link>
             </div>

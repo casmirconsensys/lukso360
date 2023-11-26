@@ -166,54 +166,46 @@ const Trending = () => {
 
             <ul className={styles.tokenSection}>
               <li className={styles.tokenItem}>
-                <Link href="/your-desired-route">
-                  <a className={styles.stretchedLink}>
-                    <img
-                      src="https://ipfs.io/ipfs/QmYPP9YPaxp18j5HKVN2mwEqjmpaZvhCX1bgqvX4LGsfYp"
-                      className="token-image"
-                      alt="Lil Baby"
-                    />
-                    <p className={styles.tokenItemText}>Lil Baby</p>
-                  </a>
+                <Link href="/feed" className={styles.stretchedLink}>
+                  <img
+                    src="https://ipfs.io/ipfs/QmYPP9YPaxp18j5HKVN2mwEqjmpaZvhCX1bgqvX4LGsfYp"
+                    className="token-image"
+                    alt="Lil Baby"
+                  />
+                  <p className={styles.tokenItemText}>Lil Baby</p>
                 </Link>
               </li>
             </ul>
             <li className={styles.tokenItem}>
-              <Link href="/your-desired-route">
-                <a className={styles.stretchedLink}>
-                  <img
-                    src="https://ipfs.io/ipfs/QmaMqNLgthC82tEvtJi9b5crbiHCmAw2jVGLQhzLWg24jz"
-                    className="token-image"
-                    alt="6ix9ine"
-                  />
-                  <p className={styles.tokenItemText}>6ix9ine</p>
-                </a>
+              <Link href="/feed" className={styles.stretchedLink}>
+                <img
+                  src="https://ipfs.io/ipfs/QmaMqNLgthC82tEvtJi9b5crbiHCmAw2jVGLQhzLWg24jz"
+                  className="token-image"
+                  alt="6ix9ine"
+                />
+                <p className={styles.tokenItemText}>6ix9ine</p>
               </Link>
             </li>
 
             <li className={styles.tokenItem}>
-              <Link href="/your-desired-route">
-                <a className={styles.stretchedLink}>
-                  <img
-                    src="https://ipfs.io/ipfs/QmVfF5KrArmTttc4jdg8Xzaa6xvHX2Mgcks3DvfWGestuR"
-                    className="token-image"
-                    alt="6ix9ine"
-                  />
-                  <p className={styles.tokenItemText}>6ix9ine</p>
-                </a>
+              <Link href="/feed" className={styles.stretchedLink}>
+                <img
+                  src="https://ipfs.io/ipfs/QmVfF5KrArmTttc4jdg8Xzaa6xvHX2Mgcks3DvfWGestuR"
+                  className="token-image"
+                  alt="6ix9ine"
+                />
+                <p className={styles.tokenItemText}>6ix9ine</p>
               </Link>
             </li>
 
             <li className={styles.tokenItem}>
-              <Link href="/your-desired-route">
-                <a className={styles.stretchedLink}>
-                  <img
-                    src="https://ipfs.io/ipfs/QmS3rtQjbYR39myCr8f1JS8f5RC7JGP8o3svqtWpibSsm8"
-                    className="token-image"
-                    alt="Juliofoolio"
-                  />
-                  <p className={styles.tokenItemText}>Juliofoolio</p>
-                </a>
+              <Link href="/feed" className={styles.stretchedLink}>
+                <img
+                  src="https://ipfs.io/ipfs/QmS3rtQjbYR39myCr8f1JS8f5RC7JGP8o3svqtWpibSsm8"
+                  className="token-image"
+                  alt="Juliofoolio"
+                />
+                <p className={styles.tokenItemText}>Juliofoolio</p>
               </Link>
             </li>
 

@@ -13,7 +13,7 @@ const NFTGrid = ({ nfts, emptyText = "No owned NFTs." }) => {
             href={`/token/${nftDropAddress}/${nft.metadata.id}`}
             key={nft.metadata.id}
             className={styles.nftContainer}
-          >
+            legacyBehavior>
             <NFT nft={nft} />
           </Link>
         ))

@@ -208,7 +208,11 @@ const Explore = () => {
                   className="token-image"
                 />
                 <p className={styles.tokenItemText}>Lil&apos;Reese</p>
-                <Link to="/your-route" className="stretched-link"></Link>
+                {/* <Link
+                  to="/feed"
+                  className="stretched-link"
+                  legacyBehavior
+                ></Link> */}
               </li>
               <li className={styles.tokenItem}>
                 <img
@@ -216,7 +220,11 @@ const Explore = () => {
                   className="token-image"
                 />
                 <p className={styles.tokenItemText}>Famous Dex</p>
-                <Link to="/your-route" className="stretched-link"></Link>
+                {/* <Link
+                  to="/feed"
+                  className="stretched-link"
+                  legacyBehavior
+                ></Link> */}
               </li>
               <li className={styles.tokenItem}>
                 <img
@@ -224,7 +232,11 @@ const Explore = () => {
                   className="token-image"
                 />
                 <p className={styles.tokenItemText}>DA BABY</p>
-                <Link to="/your-route" className="stretched-link"></Link>
+                {/* <Link
+                  to="/feed"
+                  className="stretched-link"
+                  legacyBehavior
+                ></Link> */}
               </li>
               <li className={styles.tokenItem}>
                 <img
@@ -232,7 +244,11 @@ const Explore = () => {
                   className="token-image"
                 />
                 <p className={styles.tokenItemText}>Lil Baby</p>
-                <Link to="/your-route" className="stretched-link"></Link>
+                {/* <Link
+                  to="/feed"
+                  className="stretched-link"
+                  legacyBehavior
+                ></Link> */}
               </li>
             </ul>
 

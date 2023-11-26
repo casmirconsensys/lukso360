@@ -117,7 +117,7 @@ const Drop = () => {
                 <p>Buyer: {res.receiver}</p>
                 {web3.utils.isAddress(res.receiver) ? (
                   <Link href={`/send-token/${res.id}`}>
-                    <a>Send to buyer</a>
+                    Send to buyer
                   </Link>
                 ) : (
                   <div>
@@ -126,17 +126,17 @@ const Drop = () => {
                       type="text"
                       placeholder="Enter Wallet Address"
                     />
-                    <Link href={`/send-token/${res.id}`}>
-                      <a
-                        onClick={() =>
-                          sendToken(
-                            document.getElementById(`input${res.id}`).value,
-                            res.id
-                          )
-                        }
-                      >
+                    <Link
+                      href={`/send-token/${res.id}`}
+                      onClick={() =>
+                        sendToken(
+                          document.getElementById(`input${res.id}`).value,
+                          res.id
+                        )
+                      }>
+                      
                         Send to buyer
-                      </a>
+                      
                     </Link>
                     <span>{res.name}</span>
                   </div>

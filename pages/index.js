@@ -1,3 +1,5 @@
+import React from "react";
+import { ReactDOM } from "react-dom";
 import dynamic from "next/dynamic";
 import Link from "next/dist/client/link";
 import Layout from "../components/Layout";
@@ -9,6 +11,8 @@ import fonts from "../styles/Fonts.module.css";
 // import { Waitlist } from 'waitlistapi'
 // import userflow from 'userflow.js'
 import { useEffect } from "react";
+import { useRouter } from "next/router";
+
 // import { useContract, useNFTs, ThirdwebNftMedia } from "@thirdweb-dev/react";
 
 const ThemeButton = dynamic(() => import("../components/basic/ThemeButton"), {
@@ -73,15 +77,14 @@ export default function Home() {
               <br />
               <span>
                 Here&apos;s how to{" "}
-                <Link href="/">
+                {/* <Link href="/">
                   <a
                     className="color-alternate"
                     style={{ textDecoration: "none" }}
                   >
-                    {" "}
-                    skip the waitlist now
+                    Skip the waitlist now
                   </a>
-                </Link>
+                </Link> */}
               </span>
             </span>
             <br />

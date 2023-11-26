@@ -7,14 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useNotification } from "quick-react-notification";
-import { Web3AuthOptions } from "@web3auth/modal";
-import { OpenloginAdapter } from "@web3auth/openlogin-adapter";
-import {
-  Web3AuthModalPack,
-  Web3AuthConfig,
-  CHAIN_NAMESPACES,
-} from "@safe-global/auth-kit";
-import { WALLET_ADAPTERS } from "@safe-global/auth-kit";
+// import { Web3AuthOptions } from "@web3auth/modal";
+// import { OpenloginAdapter } from "@web3auth/openlogin-adapter";
+// import {
+//   Web3AuthModalPack,
+//   Web3AuthConfig,
+//   CHAIN_NAMESPACES,
+// } from "@safe-global/auth-kit";
+// import { WALLET_ADAPTERS } from "@safe-global/auth-kit";
 // import { PayPalButton } from 'react-paypal-button-v2';
 // import { auction } from '@thirdweb-dev/marketplace'; // Import the appropriate module from Thirdweb
 // import { NewAuctionListing } from '@thirdweb-dev/marketplace/types'; // Import the NewAuctionListing type from Thirdweb
@@ -22,6 +22,7 @@ import { WALLET_ADAPTERS } from "@safe-global/auth-kit";
 import { marketPlaceABI } from "../../../public/contract/abi";
 import { useRouter } from "next/router";
 import { loadStripe } from "@stripe/stripe-js";
+import ReactDOM from "react-dom";
 // const stripePromise = loadStripe('pk_0KEVg2ByzPcc20S3HLFRsnkX6iptM');
 
 // Later in your code, after the promise resolves, you can access the stripe object

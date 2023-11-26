@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import FeedCard from "../components/cards/feed/FeedCard";
@@ -170,49 +171,49 @@ const Feed = () => {
 
             <ul className={styles.tokenSection}>
               <li className={styles.tokenItem}>
-                <Link href="#">
-                  <a className={styles.stretchedLink}>
+                <Link href="#" className={styles.stretchedLink}>
+                  <div>
                     <img
                       src="https://ipfs.io/ipfs/QmZVF237kpkgc5EASeWczMJ2CiQE2mDu6sgDXZABFPz3ut"
                       className="token-image"
                     />
                     <p className={styles.tokenItemText}>6ix9ine</p>
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li className={styles.tokenItem}>
-                <Link href="#">
-                  <a className={styles.stretchedLink}>
+                <Link href="#" className={styles.stretchedLink}>
+                  <div>
                     <img
                       src="https://ipfs.io/ipfs/QmQrzVCu84ezign2vrGdYik12ezsGu9rLvnGHCGScw9mXg"
                       className="token-image"
                     />
                     <p className={styles.tokenItemText}>GucciMane</p>
-                  </a>
+                  </div>
                 </Link>
               </li>
 
               <li className={styles.tokenItem}>
-                <Link href="#">
-                  <a className={styles.stretchedLink}>
+                <Link href="#" className={styles.stretchedLink}>
+                  <div>
                     <img
                       src="https://ipfs.io/ipfs/QmdUzLgetCsDT8CzDZVqrQj82shx8kSf9npV8pVxZz1gUx"
                       className="token-image"
                     />
-                    <p className={styles.tokenItemText}>Lil'Durkß</p>
-                  </a>
+                    <p className={styles.tokenItemText}>Lil'Durk</p>
+                  </div>
                 </Link>
               </li>
 
               <li className={styles.tokenItem}>
-                <Link href="#">
-                  <a className={styles.stretchedLink}>
+                <Link href="#" className={styles.stretchedLink}>
+                  <div>
                     <img
                       src="https://ipfs.io/ipfs/QmTRRFy828bSxEkVk59UXyLH9MEEmKLZWBQztbRV7R54wa"
                       className="token-image"
                     />
                     <p className={styles.tokenItemText}>Lil'Pump</p>
-                  </a>
+                  </div>
                 </Link>
               </li>
             </ul>
