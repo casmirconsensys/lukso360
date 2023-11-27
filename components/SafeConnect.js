@@ -22,8 +22,8 @@ const SafeConnect = () => {
         const accounts = await window.lukso.request({
           method: "eth_requestAccounts",
         });
-        // const selectedAccount = accounts[0]; // accounts[0]
-        const myUniversalProfileContract = new web3.eth.Contract(
+        const selectedAccount = accounts[0]; // accounts[0]
+        const myUniversalProfileContract = web3.eth.contract(
           UniversalProfileContract.abi,
           accounts[0]
         );
@@ -61,10 +61,10 @@ const SafeConnect = () => {
     Resources:
     - https://terms.website.com`;
     //To enable the Sign-In With Ethereum (SIWE) screen, you need to prepare a message with a specific format
-    const myUniversalProfileContract = new web3.eth.Contract(
-      UniversalProfileContract.abi,
-      selectedAccount[0]
-    );
+    // const myUniversalProfileContract = new web3.eth.Contract(
+    //   UniversalProfileContract.abi,
+    //   selectedAccount[0]
+    // );
     // const hashedMessage = web3.eth.accounts.hashedMessage(
     //   new SiweMessage({
     //     domain: window.location.host,
@@ -79,7 +79,7 @@ const SafeConnect = () => {
   };
 
   const createSafe = async () => {
-    const provider = new ethers.providers.JsonRpcProvider(
+    const provider = ethers.providers.JsonRpcProvider(
       process.env.YOUR_ETHEREUM_NODE_URL
     );
     const signer = provider.getSigner();
