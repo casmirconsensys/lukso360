@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setPic } from "../../features/redux/user/user-slice";
 import { Dropdown } from "react-bootstrap";
@@ -21,6 +21,52 @@ import styles from "../../styles/Playlists.module.css";
 import fonts from "../../styles/Fonts.module.css";
 import { suggestions } from "../../public/common/items";
 import { Link } from "react-router-dom"; // Import Link from React Router
+// import { ERC725 } from "@erc725/erc725.js";
+
+// const lsp3ProfileMetadataUrl =
+//   "@erc725/erc725.js/schemas/LSP3ProfileMetadata.json";
+// // Download and verify the profile metadata JSON file
+
+// const erc725js = new ERC725(
+//   lsp3ProfileSchema,
+//   "<myProfileAddress>",
+//   "https://rpc.testnet.lukso.gateway.fm",
+//   {
+//     ipfsGateway: "https://api.universalprofile.cloud/ipfs",
+//   }
+// );
+
+// // Get all profile data keys of the smart contract
+// const profileData = await erc725js.getData();
+// console.log(profileData);
+// useEffect(() => {
+//   // Fetch the JSON file
+//   const fetchData = async () => {
+//     try {
+//       const response = await axios.get(lsp3ProfileMetadataUrl);
+//       const lsp3ProfileSchema = response.data;
+
+//       // Use lsp3ProfileSchema as needed here...
+//     } catch (error) {
+//       console.error("Error fetching LSP3 profile metadata:", error);
+//     }
+//   };
+
+//   fetchData();
+// }, []);
+// // Fetch all of the profile's issued assets
+// const issuedAssetsDataKey = await erc725js.fetchData("LSP12IssuedAssets[]");
+// console.log(issuedAssetsDataKey);
+
+// // Fetch all owned assets of the profile
+// const receivedAssetsDataKey = await erc725js.fetchData("LSP5ReceivedAssets[]");
+// console.log(receivedAssetsDataKey);
+
+// // Fetch the profile's universal receiver
+// const universalReceiverDataKey = await erc725js.fetchData(
+//   "LSP1UniversalReceiverDelegate"
+// );
+// console.log(universalReceiverDataKey);
 
 const Profile = () => {
   const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });

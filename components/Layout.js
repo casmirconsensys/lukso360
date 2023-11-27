@@ -1,4 +1,5 @@
 //The Layout component accepts an image for background, page title, keywords for SEO and a child element
+import React from "react";
 import Head from "next/head";
 import classNames from "classnames/bind";
 import styles from "../styles/Layout.module.css";

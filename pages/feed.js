@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import FeedCard from "../components/cards/feed/FeedCard";
 import Player from "../components/Player";

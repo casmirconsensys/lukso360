@@ -12,17 +12,19 @@ import styles from '../../styles/Accounts.module.css'
 const Signout = () => {
 
     // const { isLoggingOut, logout } = useMoralis()
-    // const { isLoggingOut, logout } = { isLoggingOut: false, logout: () => {}
+    // const { isLoggingOut, logout } = useSIEW()
+    const { isLoggingOut, logout } = { isLoggingOut: false, logout: () => {}
+
     const router = useRouter()
     const dispatch = useDispatch()
     const Logout = () => {
         dispatch(setUserLoggedIn(false))
-        // dispatch(setMoralisUserName(''))
+        // dispatch(setSupabaseUserName(''))
         dispatch(setWalletAddress(''))
         logout().then(() => {
             router.push('/')
-        })
-    }
+        }),
+    },
 
     return (
         <Layout backgroundImage='signout'>
@@ -54,4 +56,4 @@ const Signout = () => {
         </Layout>
     );
 }
-export default Signout
+export default Signout;

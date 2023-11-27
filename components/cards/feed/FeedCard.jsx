@@ -23,6 +23,8 @@ import { marketPlaceABI } from "../../../public/contract/abi";
 import { useRouter } from "next/router";
 import { loadStripe } from "@stripe/stripe-js";
 import ReactDOM from "react-dom";
+import React from "react";
+
 // const stripePromise = loadStripe('pk_0KEVg2ByzPcc20S3HLFRsnkX6iptM');
 
 // Later in your code, after the promise resolves, you can access the stripe object

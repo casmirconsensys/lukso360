@@ -1,18 +1,17 @@
-import '../styles/globals.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import React, { useEffect } from 'react';
-import { Provider } from 'react-redux';
-import { store } from '../features/store';
-import { SSRProvider } from '@react-aria/ssr';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistStore } from 'redux-persist';
-import { NotificationProvider } from 'quick-react-notification';
-import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { goerli } from 'wagmi/chains';
-import { getDefaultWallets } from 'wagmi';
-import { publicProvider } from 'wagmi/providers/public';
-
-import Head from 'next/head'; // Import the Head component from Next.js
+import "../styles/globals.css";
+import "bootstrap/dist/css/bootstrap.css";
+import Head from "next/head"; // Import the Head component from Next.js
+import React, { useEffect } from "react";
+import { Provider } from "react-redux";
+import { store } from "../features/store";
+import { SSRProvider } from "@react-aria/ssr";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
+import { NotificationProvider } from "quick-react-notification";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { goerli } from "wagmi/chains";
+import { getDefaultWallets } from "wagmi";
+import { publicProvider } from "wagmi/providers/public";
 
 function MyApp({ Component, pageProps }) {
   let persistor = persistStore(store);

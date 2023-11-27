@@ -8,12 +8,17 @@ import Button from "../components/basic/button/Button";
 import Foot from "../components/sections/foot/Foot";
 import styles from "../styles/Home.module.css";
 import fonts from "../styles/Fonts.module.css";
-// import { Waitlist } from 'waitlistapi'
-// import userflow from 'userflow.js'
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-
+import { Web3Modal } from "@web3modal/react";
+import { useAccount } from "wagmi";
+import { SignMessage } from "../components/siwe/SignMessage";
+import { WagmiConfig } from "wagmi";
+// import { EthereumClient } from "@web3modal/ethereum";
+import { Web3Button } from "@web3modal/react";
 // import { useContract, useNFTs, ThirdwebNftMedia } from "@thirdweb-dev/react";
+// import { Waitlist } from 'waitlistapi'
+// import userflow from 'userflow.js'
 
 const ThemeButton = dynamic(() => import("../components/basic/ThemeButton"), {
   ssr: false,
@@ -35,6 +40,8 @@ const ThemeButton = dynamic(() => import("../components/basic/ThemeButton"), {
 // })
 
 export default function Home() {
+  // const { isConnected } = useAccount();
+
   // const { contract } = useContract("<CONTRACT_ADDRESS>");
   // const { data: name, isLoading: loadingName } = useContractRead(
   //   contract,

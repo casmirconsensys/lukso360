@@ -8,14 +8,6 @@ import {
   setName,
   setEmail,
 } from "../../features/redux/user/user-slice";
-// import {
-//   Web3AuthModalPack,
-//   Web3AuthConfig,
-//   CHAIN_NAMESPACES,
-// } from "@safe-global/auth-kit";
-// import { Web3AuthOptions } from "@web3auth/modal";
-// import { ADAPTER_EVENTS } from "@web3auth/base";
-// import { OpenloginAdapter } from "@web3auth/openlogin-adapter";
 import { Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setUserLoggedIn } from "../../features/redux/user/user-slice";
@@ -27,9 +19,24 @@ import Button from "../../components/basic/button/Button";
 import styles from "../../styles/Accounts.module.css";
 import Loader from "../../components/basic/loader/Loader";
 import { useMediaQuery } from "react-responsive";
-// import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
-// import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+// import Connect from "../accounts/abstraction/connect.js";
 
+const web3 = new Web3(window.ethereum);
+await web3.eth.requestAccounts();
+const accounts = await web3.eth.getAccounts();
+
+const signature = await web3.eth.sign(SiweMessage, accounts[0]);
+
+// async function connect() {
+//   await web3.eth.requestAccounts();
+
+//   try {
+//     const accounts = await web3.eth.requestAccounts();
+//     console.log('Connected with', accounts[0]);
+//   } catch (error) {
+//     console.error("Authentication failed:", error);
+//   }
+// }
 const connectedHandler = (data) => console.log("CONNECTED", data);
 const disconnectedHandler = (data) => console.log("DISCONNECTED", data);
 
@@ -44,6 +51,19 @@ const SignIn = () => {
   // const [userInfo, setUserInfo] = useState<Partial<UserInfo>>()
   // const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(null)
   // const address = useAddress();
+
+  const hashedMessage = web3.eth.accounts.hashedMessage(
+    new SiweMessage({
+      domain: window.location.host,
+      address: upAddress,
+      statement: "By loggin in you agree to the terms and conditions.",
+      uri: window.location.origin, // URI from the resource that is the subject of the signing
+      version: "1", // Current version of the SIWE Message
+      chainId: "4201", // Chain ID to which the session is bound, 4201 is LUKSO Testnet
+      resources: ["https://terms.website.com"], // Information the user wishes to have resolved as part of authentication by the relying party
+    }).prepareMessage()
+  );
+
   const handleLogin = async () => {
     try {
       const authKitSignData = await web3AuthModalPack.signIn();
@@ -109,18 +129,31 @@ const SignIn = () => {
       const web3AuthModalPack = new Web3AuthModalPack({
         txServiceUrl: "https://safe-transaction-goerli.safe.global",
       });
-      //   await web3AuthModalPack.init({ options, adapters: [openloginAdapter], modalConfig })
+      await web3AuthModalPack.init({
+        options,
+        adapters: [openloginAdapter],
+        modalConfig,
+      });
 
-      // web3AuthModalPack.subscribe(ADAPTER_EVENTS.CONNECTED, connectedHandler)
+      web3AuthModalPack.subscribe(ADAPTER_EVENTS.CONNECTED, connectedHandler);
 
-      // web3AuthModalPack.subscribe(ADAPTER_EVENTS.DISCONNECTED, disconnectedHandler)
+      web3AuthModalPack.subscribe(
+        ADAPTER_EVENTS.DISCONNECTED,
+        disconnectedHandler
+      );
 
-      // setWeb3AuthModalPack(web3AuthModalPack)
+      setWeb3AuthModalPack(web3AuthModalPack);
 
-      // return () => {
-      //     web3AuthModalPack.unsubscribe(ADAPTER_EVENTS.CONNECTED, connectedHandler)
-      //     web3AuthModalPack.unsubscribe(ADAPTER_EVENTS.DISCONNECTED, disconnectedHandler)
-      // }
+      return () => {
+        web3AuthModalPack.unsubscribe(
+          ADAPTER_EVENTS.CONNECTED,
+          connectedHandler
+        );
+        web3AuthModalPack.unsubscribe(
+          ADAPTER_EVENTS.DISCONNECTED,
+          disconnectedHandler
+        );
+      };
     })();
   }, []);
 
