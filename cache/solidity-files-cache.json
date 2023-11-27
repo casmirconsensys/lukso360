@@ -3,7 +3,7 @@
   "paths": {
     "artifacts": "out",
     "build_infos": "out/build-info",
-    "sources": "src",
+    "sources": "contracts",
     "tests": "test",
     "scripts": "script",
     "libraries": [

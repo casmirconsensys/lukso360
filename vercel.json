@@ -1,16 +1,15 @@
 {
-    "version": 2,
-    "framework": "nextjs",
-    "builds": [
-      {
-        "src": "next.config.js",
-        "use": "@vercel/next"
-      }
-    ],
-    "installCommand": "yarn install",
-    "buildCommand": "npm run build",
-    "devCommand": "npm run dev",
-    "outputDirectory": "build",
-    "public": true
-  }
-  
+  "version": 2,
+  "framework": "nextjs",
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@vercel/next"
+    }
+  ],
+  "installCommand": "yarn install",
+  "buildCommand": "npm run build",
+  "devCommand": "yarn dev",
+  "outputDirectory": "build",
+  "public": true
+}

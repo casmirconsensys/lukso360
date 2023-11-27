@@ -4,5 +4,5 @@
     "@next/next/no-document-import-in-page": "off"
   },
   "":"",
-  "schema":{}
+  "schema":{}//...
 }
