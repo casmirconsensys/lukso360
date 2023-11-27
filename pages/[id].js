@@ -15,14 +15,14 @@ import fonts from "../styles/Fonts.module.css";
 import { feedData, suggestions } from "../public/common/items";
 import { useMediaQuery } from "react-responsive";
 import { useState, useEffect } from "react";
-// import { useMoralis, useMoralisCloudFunction } from 'react-moralis'
 import { useSelector, useDispatch } from "react-redux";
 import { setPic } from "../features/redux/user/user-slice";
 import { Dropdown } from "react-bootstrap";
 import MobileBottomNav from "../components/sections/mobileNav/MobileBottomNav";
 import MobileNav from "../components/sections/mobileNav/MobileNav";
-// import { Link } from "react-router-dom"; // Import Link from React Router
 import Link from "next/link";
+// import { useMoralis, useMoralisCloudFunction } from 'react-moralis'
+// import { Link } from "react-router-dom"; // Import Link from React Router
 
 const UserProfile = () => {
   const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
@@ -105,8 +105,8 @@ const UserProfile = () => {
 
   const handleCoverSelect = async (e) => {
     // const chainId = await Moralis.getChainId()
-    const chainId = 999;
-    console.log("chain", chainId); //999 ZORA
+    // const chainId = 999;
+    // console.log("chain", chainId); //999 ZORA
   };
 
   return (

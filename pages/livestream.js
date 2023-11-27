@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-// import { useMoralis, useMoralisCloudFunction, useChain } from 'react-moralis'
 import { useSelector } from "react-redux";
 import Layout from "../components/Layout";
 import FeedCard from "../components/cards/feed/FeedCard";
@@ -14,10 +13,11 @@ import Button from "../components/basic/button/Button";
 import { useNotification } from "quick-react-notification";
 import Textbox from "../components/basic/textbox/Textbox";
 import Label from "../components/basic/label/Label";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import Foot from "../components/sections/foot/Foot";
 import { Card, Container } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
+// import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+// import { useMoralis, useMoralisCloudFunction, useChain } from 'react-moralis'
 
 const Explore = () => {
   const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });

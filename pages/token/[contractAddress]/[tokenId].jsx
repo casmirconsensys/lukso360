@@ -1,22 +1,22 @@
+import React, { useEffect, useState } from "react";
+import { GetStaticProps, GetStaticPaths } from "next";
+import { Signer } from "ethers";
+import SmartWalletConnected from "../../../components/smartwallet/SmartWalletConnected";
+// import newSmartWallet from "../../../components/SmartWallet/SmartWallet";
+// import newSmartWallet from '../../../components/smartwallet/SmartWallet';
 // import {
 //     MediaRenderer,
 //     ThirdwebNftMedia,
 //     useAddress,
 //     useWallet,
 //   } from "@thirdweb-dev/react";
-import React, { useEffect, useState } from "react";
-import { GetStaticProps, GetStaticPaths } from "next";
 // import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 // import { activeChain, nftDropAddress } from "../../../const/constants";
 // import styles from "../../../styles/Token.module.css";
-import { Signer } from "ethers";
-// import newSmartWallet from "../../../components/SmartWallet/SmartWallet";
-// import newSmartWallet from '../../../components/smartwallet/SmartWallet';
-import SmartWalletConnected from "../../../components/smartwallet/SmartWalletConnected";
 
 export default function TokenPage({ nft, contractMetadata }) {
-  const [smartWalletAddress, setSmartWalletAddress] = useState(null);
-  const [signer, setSigner] = useState();
+  // const [smartWalletAddress, setSmartWalletAddress] = useState(null);
+  // const [signer, setSigner] = useState();
 
   // const address = useAddress();
   // const wallet = useWallet();

@@ -14,8 +14,8 @@ import { Web3Modal } from "@web3modal/react";
 import { useAccount } from "wagmi";
 import { SignMessage } from "../components/siwe/SignMessage";
 import { WagmiConfig } from "wagmi";
-// import { EthereumClient } from "@web3modal/ethereum";
 import { Web3Button } from "@web3modal/react";
+// import { EthereumClient } from "@web3modal/ethereum";
 // import { useContract, useNFTs, ThirdwebNftMedia } from "@thirdweb-dev/react";
 // import { Waitlist } from 'waitlistapi'
 // import userflow from 'userflow.js'

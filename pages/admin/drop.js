@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-// import { useMoralis, useMoralisCloudFunction } from 'react-moralis'
 import router from "next/router";
 import Loader from "../../components/basic/loader/Loader";
 import Link from "next/link";
+// import { useMoralis, useMoralisCloudFunction } from 'react-moralis'
+
 
 const Drop = () => {
   // const { Moralis, enableWeb3, web3 } = useMoralis()
@@ -22,51 +23,51 @@ const Drop = () => {
       contractAddress: "0xB262E527ac2C2c788316421aD9129B5B3ccFfd0C",
       tokenId: id,
     };
-    const express = require("express");
-    const app = express();
-    // This is a public sample test API key.
-    // Don’t submit any personally identifiable information in requests made with this key.
-    // Sign in to see your own test API key embedded in code samples.
-    const Stripe = require("stripe");
-    const stripe = Stripe("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
-    const OnrampSessionResource = Stripe.StripeResource.extend({
-      create: Stripe.StripeResource.method({
-        method: "POST",
-        path: "crypto/onramp_sessions",
-      }),
-    });
+    // const express = require("express");
+    // const app = express();
+    // // This is a public sample test API key.
+    // // Don’t submit any personally identifiable information in requests made with this key.
+    // // Sign in to see your own test API key embedded in code samples.
+    // // const Stripe = require("stripe");
+    // const stripe = Stripe("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+    // const OnrampSessionResource = Stripe.StripeResource.extend({
+    //   create: Stripe.StripeResource.method({
+    //     method: "POST",
+    //     path: "crypto/onramp_sessions",
+    //   }),
+    // });
 
-    app.use(express.static("public"));
-    app.use(express.json());
+    // app.use(express.static("public"));
+    // app.use(express.json());
 
-    app.post("/create-onramp-session", async (req, res) => {
-      const { transaction_details } = req.body;
+    // app.post("/create-onramp-session", async (req, res) => {
+    //   const { transaction_details } = req.body;
 
-      // Create an OnrampSession with the order amount and currency
-      const onrampSession = await new OnrampSessionResource(stripe).create({
-        transaction_details: {
-          destination_currency: transaction_details["destination_currency"],
-          destination_exchange_amount:
-            transaction_details["destination_exchange_amount"],
-          destination_network: transaction_details["destination_network"],
-        },
-        customer_ip_address: req.socket.remoteAddress,
-      });
+    // Create an OnrampSession with the order amount and currency
+    //   const onrampSession = await new OnrampSessionResource(stripe).create({
+    //     transaction_details: {
+    //       destination_currency: transaction_details["destination_currency"],
+    //       destination_exchange_amount:
+    //         transaction_details["destination_exchange_amount"],
+    //       destination_network: transaction_details["destination_network"],
+    //     },
+    //     customer_ip_address: req.socket.remoteAddress,
+    //   });
 
-      res.send({
-        clientSecret: onrampSession.client_secret,
-      });
-    });
+    //   res.send({
+    //     clientSecret: onrampSession.client_secret,
+    //   });
+    // });
 
     app
       .listen(4242, () => console.log("Node server listening on port 4242!"))
       .then(async (data) => {
-        const ItemClass = await Moralis.Object.extend("Item");
-        const query = new Moralis.Query(ItemClass).equalTo("tokenId", id);
+        // const ItemClass = await Moralis.Object.extend("Item");
+        // const query = new Moralis.Query(ItemClass).equalTo("tokenId", id);
         const results = await query.find();
         const user = JSON.parse(JSON.stringify(results));
         const objId = user[0].objectId;
-        const userObj = await new Moralis.Query(ItemClass).get(objId);
+        // const userObj = await new Moralis.Query(ItemClass).get(objId);
         userObj.set("nftSent", true);
         await userObj.save();
         console.log(data);
@@ -116,9 +117,7 @@ const Drop = () => {
                 <p>Artist: {res.artist}</p>
                 <p>Buyer: {res.receiver}</p>
                 {web3.utils.isAddress(res.receiver) ? (
-                  <Link href={`/send-token/${res.id}`}>
-                    Send to buyer
-                  </Link>
+                  <Link href={`/send-token/${res.id}`}>Send to buyer</Link>
                 ) : (
                   <div>
                     <input
@@ -133,10 +132,9 @@ const Drop = () => {
                           document.getElementById(`input${res.id}`).value,
                           res.id
                         )
-                      }>
-                      
-                        Send to buyer
-                      
+                      }
+                    >
+                      Send to buyer
                     </Link>
                     <span>{res.name}</span>
                   </div>

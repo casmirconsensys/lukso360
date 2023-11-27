@@ -33,7 +33,7 @@ import Link from "next/link";
 
 const Feed = () => {
   const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
-  // const isLoggedIn = useSelector(state => state.user.isLoggedIn)
+  // const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const router = useRouter();
 
   // if (!isLoggedIn)

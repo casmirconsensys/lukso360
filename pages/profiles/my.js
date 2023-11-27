@@ -21,54 +21,57 @@ import styles from "../../styles/Playlists.module.css";
 import fonts from "../../styles/Fonts.module.css";
 import { suggestions } from "../../public/common/items";
 import { Link } from "react-router-dom"; // Import Link from React Router
-// import { ERC725 } from "@erc725/erc725.js";
+import { Router } from "express";
+import { ERC725 } from "@erc725/erc725.js";
 
-// const lsp3ProfileMetadataUrl =
-//   "@erc725/erc725.js/schemas/LSP3ProfileMetadata.json";
 // // Download and verify the profile metadata JSON file
 
-// const erc725js = new ERC725(
-//   lsp3ProfileSchema,
-//   "<myProfileAddress>",
-//   "https://rpc.testnet.lukso.gateway.fm",
-//   {
-//     ipfsGateway: "https://api.universalprofile.cloud/ipfs",
-//   }
-// );
-
 // // Get all profile data keys of the smart contract
-// const profileData = await erc725js.getData();
-// console.log(profileData);
-// useEffect(() => {
-//   // Fetch the JSON file
-//   const fetchData = async () => {
-//     try {
-//       const response = await axios.get(lsp3ProfileMetadataUrl);
-//       const lsp3ProfileSchema = response.data;
 
-//       // Use lsp3ProfileSchema as needed here...
-//     } catch (error) {
-//       console.error("Error fetching LSP3 profile metadata:", error);
-//     }
-//   };
-
-//   fetchData();
-// }, []);
 // // Fetch all of the profile's issued assets
-// const issuedAssetsDataKey = await erc725js.fetchData("LSP12IssuedAssets[]");
-// console.log(issuedAssetsDataKey);
 
-// // Fetch all owned assets of the profile
-// const receivedAssetsDataKey = await erc725js.fetchData("LSP5ReceivedAssets[]");
-// console.log(receivedAssetsDataKey);
+const Profile = async () => {
+  const lsp3ProfileMetadataUrl =
+    "@erc725/erc725.js/schemas/LSP3ProfileMetadata.json";
+  const erc725js = new ERC725(
+    lsp3ProfileSchema,
+    "<myProfileAddress>",
+    "https://rpc.testnet.lukso.gateway.fm",
+    {
+      ipfsGateway: "https://api.universalprofile.cloud/ipfs",
+    }
+  );
+  useEffect(() => {
+    // Fetch the JSON file
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(lsp3ProfileMetadataUrl);
+        const lsp3ProfileSchema = response.data;
+        // Use lsp3ProfileSchema as needed here...
+      } catch (error) {
+        console.error("Error fetching LSP3 profile metadata:", error);
+      }
+    };
 
-// // Fetch the profile's universal receiver
-// const universalReceiverDataKey = await erc725js.fetchData(
-//   "LSP1UniversalReceiverDelegate"
-// );
-// console.log(universalReceiverDataKey);
+    fetchData();
+  }, []);
+  const profileData = await erc725js.getData();
+  console.log(profileData);
+  const issuedAssetsDataKey = await erc725js.fetchData("LSP12IssuedAssets[]");
+  console.log(issuedAssetsDataKey);
 
-const Profile = () => {
+  // Fetch all owned assets of the profile
+  const receivedAssetsDataKey = await erc725js.fetchData(
+    "LSP5ReceivedAssets[]"
+  );
+  console.log(receivedAssetsDataKey);
+
+  // Fetch the profile's universal receiver
+  const universalReceiverDataKey = await erc725js.fetchData(
+    "LSP1UniversalReceiverDelegate"
+  );
+  console.log(universalReceiverDataKey);
+
   const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
 
   const name = useSelector((state) => state.user.name);
@@ -123,139 +126,140 @@ const Profile = () => {
   // }
 
   return (
-    <Layout backgroundImage="playlist">
-      {isPortrait ? (
-        <div className={`${styles.containerGridMobile} ${fonts.mont}`}>
-          <div className={styles.mobileNavBackground}>
-            <div className={styles.mobileNav}>
-              <MobileNav title="Profile" />
-              <div style={{ marginTop: "12px" }}></div>
+    <Router>
+      <Layout backgroundImage="playlist">
+        {isPortrait ? (
+          <div className={`${styles.containerGridMobile} ${fonts.mont}`}>
+            <div className={styles.mobileNavBackground}>
+              <div className={styles.mobileNav}>
+                <MobileNav title="Profile" />
+                <div style={{ marginTop: "12px" }}></div>
+              </div>
             </div>
-          </div>
 
-          <div className={`hide-scroll ${styles.scrollFeedContainer}`}>
-            {data &&
-              (data.length >= 1 ? (
-                data
-                  .slice(0)
-                  .reverse()
-                  .map((res, ind) => <FeedCard key={ind} feed={res} />)
-              ) : (
-                <div className="centerDivItems">
-                  <h1
-                    className={`color-primary ${fonts.mont}`}
-                    style={{ fontWeight: 300 }}
-                  >
-                    No NFT&apos;s Minted
-                  </h1>
-                </div>
-              ))}
-          </div>
-          {/* <Player progress={40}/> */}
-          <MobileBottomNav />
-        </div>
-      ) : (
-        <div className={`${styles.containerGrid} ${fonts.mont}`}>
-          <div className={styles.topLeft}>
-            <Logo className={styles.navbarBrand} />
-          </div>
-
-          <div className={styles.topCenter}>
-            <Toolbox showModal={() => setUploadModal(true)} />
-          </div>
-
-          <div className={styles.topRight}>
-            <User />
-          </div>
-
-          <div className={styles.bottomLeft}>
-            <Menu />
-            <ProfileProgress done="50" />
-          </div>
-
-          <div className={styles.bottomCenter}>
             <div className={`hide-scroll ${styles.scrollFeedContainer}`}>
-              <div className={styles.profileCover}>
-                <img
-                  className={styles.profileCoverImage}
-                  src={uCover}
-                  alt="..."
-                />
-                <img className={styles.profileImage} src={uPic} />
-                <div className={styles.profileCoverBody}>
-                  <div className={styles.profileCoverBodyHeader}>
-                    <div className={styles.profileNameContainer}>
-                      <h3 className={styles.profileName}>
-                        {name}
-                        <img
-                          className="verified"
-                          src="https://s2.svgbox.net/materialui.svg?ic=verified&color=00b8b9"
-                          width="24"
-                          height="24"
-                        />
-                      </h3>
-                      <h4 className={styles.profileUsername}>{uName}</h4>
-                    </div>
-                    <div className="spacer"></div>
-                    <Dropdown>
-                      <Dropdown.Toggle variant="success" id="moreOptions">
-                        {avatarUploading ? (
-                          <span
-                            className="spinner-border spinner-border-sm"
-                            style={{ margin: "0 24px" }}
-                            role="status"
-                            aria-hidden="true"
-                          ></span>
-                        ) : (
+              {data &&
+                (data.length >= 1 ? (
+                  data
+                    .slice(0)
+                    .reverse()
+                    .map((res, ind) => <FeedCard key={ind} feed={res} />)
+                ) : (
+                  <div className="centerDivItems">
+                    <h1
+                      className={`color-primary ${fonts.mont}`}
+                      style={{ fontWeight: 300 }}
+                    >
+                      No NFT&apos;s Minted
+                    </h1>
+                  </div>
+                ))}
+            </div>
+            {/* <Player progress={40}/> */}
+            <MobileBottomNav />
+          </div>
+        ) : (
+          <div className={`${styles.containerGrid} ${fonts.mont}`}>
+            <div className={styles.topLeft}>
+              <Logo className={styles.navbarBrand} />
+            </div>
+
+            <div className={styles.topCenter}>
+              <Toolbox showModal={() => setUploadModal(true)} />
+            </div>
+
+            <div className={styles.topRight}>
+              <User />
+            </div>
+
+            <div className={styles.bottomLeft}>
+              <Menu />
+              <ProfileProgress done="50" />
+            </div>
+
+            <div className={styles.bottomCenter}>
+              <div className={`hide-scroll ${styles.scrollFeedContainer}`}>
+                <div className={styles.profileCover}>
+                  <img
+                    className={styles.profileCoverImage}
+                    src={uCover}
+                    alt="..."
+                  />
+                  <img className={styles.profileImage} src={uPic} />
+                  <div className={styles.profileCoverBody}>
+                    <div className={styles.profileCoverBodyHeader}>
+                      <div className={styles.profileNameContainer}>
+                        <h3 className={styles.profileName}>
+                          {name}
+                          <img
+                            className="verified"
+                            src="https://s2.svgbox.net/materialui.svg?ic=verified&color=00b8b9"
+                            width="24"
+                            height="24"
+                          />
+                        </h3>
+                        <h4 className={styles.profileUsername}>{uName}</h4>
+                      </div>
+                      <div className="spacer"></div>
+                      <Dropdown>
+                        <Dropdown.Toggle variant="success" id="moreOptions">
+                          {avatarUploading ? (
+                            <span
+                              className="spinner-border spinner-border-sm"
+                              style={{ margin: "0 24px" }}
+                              role="status"
+                              aria-hidden="true"
+                            ></span>
+                          ) : (
+                            <Button
+                              isDropdownButton={1}
+                              type="secondary"
+                              marginRight="24px"
+                              isOutline={1}
+                              iconOpacity={1}
+                              iconClass="icon-kebab-horizontal"
+                            />
+                          )}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
                           <Button
                             isDropdownButton={1}
+                            text="Upload Avatar"
+                            onClick={() =>
+                              document.getElementById("fileDialogPic").click()
+                            }
                             type="secondary"
-                            marginRight="24px"
-                            isOutline={1}
-                            iconOpacity={1}
-                            iconClass="icon-kebab-horizontal"
                           />
-                        )}
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        <Button
-                          isDropdownButton={1}
-                          text="Upload Avatar"
-                          onClick={() =>
-                            document.getElementById("fileDialogPic").click()
-                          }
-                          type="secondary"
-                        />
-                        <Button
-                          isDropdownButton={1}
-                          text="Upload Cover"
-                          onClick={() =>
-                            document.getElementById("fileDialogCover").click()
-                          }
-                          type="secondary"
-                        />
-                      </Dropdown.Menu>
-                    </Dropdown>
-                    <Button
-                      type="secondary"
-                      marginRight="24px"
-                      isOutline={1}
-                      iconOpacity={1}
-                      iconClass="icon-share"
-                    />
-                    {/* <Button type='secondary' isLink={1} marginRight='24px' isOutline={1} iconOpacity={1} iconClass='icon-favorite-border'/> */}
-                    {/* <Button text='Subscribe' bg='greenToPurple' spread='gradient'/> */}
-                  </div>
-                  <p className={styles.profileCoverText}>
-                    {userBio}
-                    {/* condional if text length maxes limit <span>
+                          <Button
+                            isDropdownButton={1}
+                            text="Upload Cover"
+                            onClick={() =>
+                              document.getElementById("fileDialogCover").click()
+                            }
+                            type="secondary"
+                          />
+                        </Dropdown.Menu>
+                      </Dropdown>
+                      <Button
+                        type="secondary"
+                        marginRight="24px"
+                        isOutline={1}
+                        iconOpacity={1}
+                        iconClass="icon-share"
+                      />
+                      {/* <Button type='secondary' isLink={1} marginRight='24px' isOutline={1} iconOpacity={1} iconClass='icon-favorite-border'/> */}
+                      {/* <Button text='Subscribe' bg='greenToPurple' spread='gradient'/> */}
+                    </div>
+                    <p className={styles.profileCoverText}>
+                      {userBio}
+                      {/* condional if text length maxes limit <span>
                                         <Link href='/'><a className='color-alternate' style={{textDecoration: 'none'}}> View more info</a>
                                         </Link>
                                     </span> */}
-                  </p>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              {/* { data && 
+                {/* { data && 
                                 (
                                     data.length >= 1 ? data.slice(0).reverse().map((res, ind) => <FeedCard key={ind} feed={res} />)
                                     :
@@ -264,53 +268,54 @@ const Profile = () => {
                                     </div>
                                 )
                         } */}
+              </div>
+              <Player progress={90} />
             </div>
-            <Player progress={90} />
-          </div>
 
-          <div className={styles.bottomRight}>
-            <div>
-              <Link to="/your-route" className="grid-item locked">
-                <img src="https://ipfs.io/ipfs/QmaMqNLgthC82tEvtJi9b5crbiHCmAw2jVGLQhzLWg24jz" />
-              </Link>
-              <Link to="/your-route" className="grid-item locked">
-                <img src="https://ipfs.io/ipfs/QmekzNWUg4a2HQduHv9wq3vbiyRWBVUdrVzbDuWwied7sN" />
-              </Link>
-              <Link to="/your-route" className="grid-item">
-                <img src="https://ipfs.io/ipfs/QmYPP9YPaxp18j5HKVN2mwEqjmpaZvhCX1bgqvX4LGsfYp" />
-              </Link>
-              <Link to="/your-route" className="grid-item">
-                <img src="https://ipfs.io/ipfs/QmZHvB7CV3Y8Azzq6tR6Ztu8jtbqB3TJbLhPzMPQSW9o9J" />
-              </Link>
-              <Link to="/your-route" className="grid-item">
-                <img src="https://ipfs.io/ipfs/QmYQmDEf3kMBfrd3MbPhEVhYXVwMQ88BqnpD6RAVx9HY71" />
-              </Link>
-              <Link to="/your-route" className="grid-item">
-                <img src="https://ipfs.io/ipfs/QmS3rtQjbYR39myCr8f1JS8f5RC7JGP8o3svqtWpibSsm8" />
-              </Link>
+            <div className={styles.bottomRight}>
+              <div>
+                <Link to="/your-route" className="grid-item locked">
+                  <img src="https://ipfs.io/ipfs/QmaMqNLgthC82tEvtJi9b5crbiHCmAw2jVGLQhzLWg24jz" />
+                </Link>
+                <Link to="/your-route" className="grid-item locked">
+                  <img src="https://ipfs.io/ipfs/QmekzNWUg4a2HQduHv9wq3vbiyRWBVUdrVzbDuWwied7sN" />
+                </Link>
+                <Link to="/your-route" className="grid-item">
+                  <img src="https://ipfs.io/ipfs/QmYPP9YPaxp18j5HKVN2mwEqjmpaZvhCX1bgqvX4LGsfYp" />
+                </Link>
+                <Link to="/your-route" className="grid-item">
+                  <img src="https://ipfs.io/ipfs/QmZHvB7CV3Y8Azzq6tR6Ztu8jtbqB3TJbLhPzMPQSW9o9J" />
+                </Link>
+                <Link to="/your-route" className="grid-item">
+                  <img src="https://ipfs.io/ipfs/QmYQmDEf3kMBfrd3MbPhEVhYXVwMQ88BqnpD6RAVx9HY71" />
+                </Link>
+                <Link to="/your-route" className="grid-item">
+                  <img src="https://ipfs.io/ipfs/QmS3rtQjbYR39myCr8f1JS8f5RC7JGP8o3svqtWpibSsm8" />
+                </Link>
+              </div>
+              <span className={styles.subHeader}>You might like</span>
+              <Suggestions items={suggestions} hasSubscribeButton={1} />
+              <AddToken />
             </div>
-            <span className={styles.subHeader}>You might like</span>
-            <Suggestions items={suggestions} hasSubscribeButton={1} />
-            <AddToken />
-          </div>
 
-          {openUploadModal && (
-            <div className={styles.uploadModal}>
-              <Upload hideModal={() => setUploadModal(false)} />
-            </div>
-          )}
-        </div>
-      )}
-      <form style={{ display: "none" }}>
-        <input
-          type="file"
-          id="fileDialogPic"
-          onChange={handleFileSelect}
-          accept="image/jpeg, image/png, image/video/mp4, image/gif, audio/*"
-        />
-        {/* <input type='file' id='fileDialogCover' onChange={handleCoverSelect} accept='image/jpeg, image/png, image/video/mp4, image/gif, audio/*'/> */}
-      </form>
-    </Layout>
+            {openUploadModal && (
+              <div className={styles.uploadModal}>
+                <Upload hideModal={() => setUploadModal(false)} />
+              </div>
+            )}
+          </div>
+        )}
+        <form style={{ display: "none" }}>
+          <input
+            type="file"
+            id="fileDialogPic"
+            onChange={handleFileSelect}
+            accept="image/jpeg, image/png, image/video/mp4, image/gif, audio/*"
+          />
+          {/* <input type='file' id='fileDialogCover' onChange={handleCoverSelect} accept='image/jpeg, image/png, image/video/mp4, image/gif, audio/*'/> */}
+        </form>
+      </Layout>
+    </Router>
   );
 };
 

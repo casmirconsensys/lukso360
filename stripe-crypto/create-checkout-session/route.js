@@ -1,35 +1,35 @@
-const { NextResponse } = require("next/server");
-const { supabaseAdmin } = require("@/utils/supabaseAdmin");
+// const { NextResponse } = require("next/server");
+// const { supabaseAdmin } = require("@/utils/supabaseAdmin");
 
-async function POST(request) {
-  try {
-    const body = await request.json();
+// async function POST(request) {
+//   try {
+//     const body = await request.json();
 
-    const { data, error } = await supabaseAdmin
-      .from("360nftV0_contact-form")
-      .upsert([
-        {
-          name: body.name,
-          subject: body.subject,
-          message: body.message,
-          email: body.email,
-        },
-      ])
-      .select();
+//     const { data, error } = await supabaseAdmin
+//       .from("360nftV0_contact-form")
+//       .upsert([
+//         {
+//           name: body.name,
+//           subject: body.subject,
+//           message: body.message,
+//           email: body.email,
+//         },
+//       ])
+//       .select();
 
-    if (data) {
-      return NextResponse.json({
-        data,
-        status: 201,
-      });
-    } else {
-      return NextResponse.json("Failed");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
+//     if (data) {
+//       return NextResponse.json({
+//         data,
+//         status: 201,
+//       });
+//     } else {
+//       return NextResponse.json("Failed");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-module.exports = {
-  POST,
-};
+// module.exports = {
+//   POST,
+// };

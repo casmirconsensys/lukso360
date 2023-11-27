@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-// import { useMoralisCloudFunction } from 'react-moralis'
 import { useSelector } from "react-redux";
 import Layout from "../components/Layout";
 import FeedCard from "../components/cards/feed/FeedCard";
@@ -21,8 +20,9 @@ import MobileBottomNav from "../components/sections/mobileNav/MobileBottomNav";
 import MobileNav from "../components/sections/mobileNav/MobileNav";
 import { useMediaQuery } from "react-responsive";
 import { waveItems } from "../public/common/items";
-// import { Link } from "react-router-dom"; // Import Link from React Router
 import Link from "next/link";
+// import { Link } from "react-router-dom"; // Import Link from React Router
+// import { useMoralisCloudFunction } from 'react-moralis'
 
 const Explore = () => {
   const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });

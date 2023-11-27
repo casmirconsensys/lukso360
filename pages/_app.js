@@ -8,10 +8,10 @@ import { SSRProvider } from "@react-aria/ssr";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import { NotificationProvider } from "quick-react-notification";
-import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { goerli } from "wagmi/chains";
-import { getDefaultWallets } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
+// import { configureChains, createClient, WagmiConfig } from "wagmi";
+// import { goerli } from "wagmi/chains";
+// import { getDefaultWallets } from "wagmi";
+// import { publicProvider } from "wagmi/providers/public";
 
 function MyApp({ Component, pageProps }) {
   let persistor = persistStore(store);

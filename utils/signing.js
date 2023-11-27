@@ -13,8 +13,8 @@ import { config } from "../wagmi";
 
 export async function createJwt(account, chainId, statement) {
   const message_ = new SiweMessage({
-    domain: import.meta.env.VITE_APP_DOMAIN,
-    uri: `https://${import.meta.env.VITE_APP_DOMAIN}`,
+    // domain: import.meta.env.VITE_APP_DOMAIN,
+    // uri: `https://${import.meta.env.VITE_APP_DOMAIN}`,
     statement,
     address: account,
     issuedAt: new Date().toISOString(),
@@ -23,7 +23,7 @@ export async function createJwt(account, chainId, statement) {
     chainId,
     resources: [
       `did:account:${account}`,
-      `did:web:${import.meta.env.VITE_APP_DOMAIN}`,
+      // `did:web:${import.meta.env.VITE_APP_DOMAIN}`,
     ],
   });
   const message = message_.prepareMessage();

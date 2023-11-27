@@ -10,13 +10,9 @@ const User = ({ getOnlyImage }) => {
     const uPic = useSelector(state => state.user.upic); // Use the correct property name
     const uName = useSelector(state => state.user.uname); // Use the correct property name
 
-    
-
-
-
-    const showConvo = () =>{
-        // document.getElementById('convo').style.display = 'block';
-    }
+    // const showConvo = () =>{
+    //     // document.getElementById('convo').style.display = 'block';
+    // }
 
     return (
         getOnlyImage ? 
@@ -36,9 +32,9 @@ const User = ({ getOnlyImage }) => {
                         <Button isDropdownButton={1} text='Settings' type='secondary'/>
                         <Button isDropdownButton={1} text='Logout' isLink={1} href='/accounts/signout' type='secondary'/>
                 </DropdownButton>                                                                               
-                <iframe id='convo' title='chat' src='https://theconvo.space/embed/dt?url=http%3A%2F%2Ftrapchain.herokuapp.com%2F&threadId=MW00087000001Y' allowtransparency='true' width='100%' height='600px' style={{border: 'none', display: 'none'}}>
+                {/* <iframe id='convo' title='chat' src='https://theconvo.space/embed/dt?url=http%3A%2F%2Ftrapchain.herokuapp.com%2F&threadId=MW00087000001Y' allowtransparency='true' width='100%' height='600px' style={{border: 'none', display: 'none'}}>
                     Comments
-                </iframe>
+                </iframe> */}
             </div>
     )
 }

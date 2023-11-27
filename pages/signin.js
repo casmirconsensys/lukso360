@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import Connect from "../components/Connect.js";
 import SafeConnect from "../components/SafeConnect";
 import SignInBanner from "../public/images/accounts/sign-in-banner.jpg";
 import Loader from "../components/basic/loader/Loader";
@@ -7,6 +6,9 @@ import UniversalProfileContract from "@lukso/lsp-smart-contracts/artifacts/Unive
 import Web3 from "web3";
 import { SiweMessage } from "siwe";
 import { hashMessage } from "ethers";
+// import {chains, publicClient} from WagmiConfig;
+// import { WagmiConfig } from "wagmi";
+// import Connect from "../components/Connect.js";
 
 const Page = () => {
   useEffect(() => {

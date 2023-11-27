@@ -8,7 +8,7 @@ const NFTComponent = ({ nft }) => {
   return (
     <>
       {/* Display the NFT image */}
-      <ThirdwebNftMedia metadata={nft.metadata} className={styles.nftImage} />
+      {/* <ThirdwebNftMedia metadata={nft.metadata} className={styles.nftImage} /> */}
 
       {/* Display the token ID */}
       <p className={styles.nftTokenId}>Token ID #{nft.metadata.id}</p>

@@ -3,20 +3,20 @@ import Layout from '../../components/Layout'
 import LAccountsCol from '../../components/sections/LAccountsCol'
 import RAccountsCol from '../../components/sections/racol/RAccountsCol'
 import { useRouter } from 'next/router';
-// import { setMoralisUserName, setUserLoggedIn, setWalletAddress } from '../../features/redux/user/user-slice'
 import { useDispatch } from 'react-redux'
 import fonts from '../../styles/Fonts.module.css'
 import Button from '../../components/basic/button/Button'
 import styles from '../../styles/Accounts.module.css'
+// import { setMoralisUserName, setUserLoggedIn, setWalletAddress } from '../../features/redux/user/user-slice'
 
 const Signout = () => {
 
     // const { isLoggingOut, logout } = useMoralis()
     // const { isLoggingOut, logout } = useSIEW()
-    const { isLoggingOut, logout } = { isLoggingOut: false, logout: () => {}
+    const { isLoggingOut, logout } = { isLoggingOut: false, logout: () => {},
 
-    const router = useRouter()
-    const dispatch = useDispatch()
+    const router = useRouter(),
+    const dispatch = useDispatch(),
     const Logout = () => {
         dispatch(setUserLoggedIn(false))
         // dispatch(setSupabaseUserName(''))
@@ -25,7 +25,7 @@ const Signout = () => {
             router.push('/')
         }),
     },
-
+}
     return (
         <Layout backgroundImage='signout'>
                 <div className='row'>
@@ -55,5 +55,6 @@ const Signout = () => {
                 </div>
         </Layout>
     );
-}
+    }
+
 export default Signout;
